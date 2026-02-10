@@ -1,0 +1,11 @@
+{
+	"name": "sveltekit-embeds-workspace",
+	"private": true,
+	"version": "0.0.0",
+	"packageManager": "pnpm@10.29.2",
+	"scripts": {
+		"dev:lib": "pnpm --filter sveltekit-embeds dev",
+		"dev:web": "pnpm --filter web dev",
+		"check": "pnpm -r check"
+	}
+}

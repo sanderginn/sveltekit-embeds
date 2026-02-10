@@ -1,0 +1,11 @@
+node_modules
+.DS_Store
+.dex/
+
+apps/web/node_modules
+apps/web/.svelte-kit
+apps/web/build
+
+packages/sveltekit-embeds/node_modules
+packages/sveltekit-embeds/.svelte-kit
+packages/sveltekit-embeds/dist
