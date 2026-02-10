@@ -1,1 +1,21 @@
 export { default as GeneralObserver } from './components/general-observer.svelte';
+export { default as YouTube } from './components/you-tube.svelte';
+export { default as TikTok } from './components/tik-tok.svelte';
+export { default as Twitch } from './components/twitch.svelte';
+export { default as Dailymotion } from './components/dailymotion.svelte';
+export { default as Spotify } from './components/spotify.svelte';
+export { default as AppleMusic } from './components/apple-music.svelte';
+export { default as ApplePodcasts } from './components/apple-podcasts.svelte';
+export { default as SoundCloud } from './components/sound-cloud.svelte';
+export { default as Deezer } from './components/deezer.svelte';
+export { default as Tidal } from './components/tidal.svelte';
+export { default as XEmbed } from './components/x-embed.svelte';
+export { default as Instagram } from './components/instagram.svelte';
+export { default as Threads } from './components/threads.svelte';
+export { default as Bluesky } from './components/bluesky.svelte';
+export { default as Mastodon } from './components/mastodon.svelte';
+export { default as LinkedIn } from './components/linked-in.svelte';
+export { default as Reddit } from './components/reddit.svelte';
+export { default as Pinterest } from './components/pinterest.svelte';
+
+export * from './utils/index.js';

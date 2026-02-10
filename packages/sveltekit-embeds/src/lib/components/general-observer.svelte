@@ -39,7 +39,7 @@
 	});
 </script>
 
-<div bind:this={root}>
+<div bind:this={root} data-testid="general-observer">
 	{#if disable_observer || loaded}
 		{@render children()}
 	{/if}

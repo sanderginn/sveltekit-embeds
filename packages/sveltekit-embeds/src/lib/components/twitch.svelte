@@ -16,7 +16,7 @@
 	let {
 		url,
 		aspectRatio = '16:9',
-		parent = 'localhost',
+		parent = '',
 		autoplay = false,
 		muted = false,
 		disable_observer = false,
