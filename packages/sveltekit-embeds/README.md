@@ -1,65 +1,73 @@
-# Svelte library
+# sveltekit-embeds
 
-Everything you need to build a Svelte library, powered by [`sv`](https://npmjs.com/package/sv).
+Svelte 5 embed component library for media and social platforms.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+## What you get
 
-## Creating a project
+- Lazy-loaded embeds via `GeneralObserver` (IntersectionObserver-based)
+- URL parsing and embed URL helpers in `src/lib/utils`
+- Iframe embeds and script-injection embeds in `src/lib/components`
+- TypeScript + Svelte package output (`dist/`) via `svelte-package`
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Exported components
 
-```sh
-# create a new project in the current directory
-npx sv create
+- `GeneralObserver`
+- `YouTube`, `TikTok`, `Twitch`, `Dailymotion`
+- `Spotify`, `AppleMusic`, `ApplePodcasts`, `SoundCloud`, `Deezer`, `Tidal`
+- `XEmbed`, `Instagram`, `Threads`, `Bluesky`, `Mastodon`, `LinkedIn`, `Reddit`, `Pinterest`
 
-# create a new project in my-app
-npx sv create my-app
+Utilities are also re-exported from `src/lib/utils`.
+
+## Usage
+
+```svelte
+<script lang="ts">
+	import { YouTube, Spotify, XEmbed } from 'sveltekit-embeds';
+</script>
+
+<YouTube url="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
+<Spotify url="https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC" />
+<XEmbed url="https://x.com/jack/status/20" />
 ```
 
-To recreate this project with the same configuration:
+Most components support:
 
-```sh
-# recreate this project
-npx sv create --template library --types ts --no-install packages/sveltekit-embeds
+- `url` (required)
+- `disable_observer` (optional, bypass lazy loading)
+- sizing/style props (varies per component, see component files)
+
+## Local development
+
+From the repository root:
+
+```bash
+pnpm install
+pnpm --filter sveltekit-embeds dev
 ```
 
-## Developing
+Run static checks:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```bash
+pnpm --filter sveltekit-embeds check
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+Run tests (server utils + browser component tests):
 
-## Building
-
-To build your library:
-
-```sh
-npm pack
+```bash
+pnpm --filter sveltekit-embeds test:unit
 ```
 
-To create a production version of your showcase app:
+Build package output and run publint:
 
-```sh
-npm run build
+```bash
+pnpm --filter sveltekit-embeds prepack
 ```
 
-You can preview the production build with `npm run preview`.
+## Testing notes
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Browser component tests use `vitest-browser-svelte` + Playwright Chromium.
+- First run may download browser binaries:
 
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```sh
-npm publish
+```bash
+pnpm --filter sveltekit-embeds exec playwright install chromium
 ```

@@ -1,42 +1,46 @@
-# sv
+# `apps/web` demo
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Demo app for `sveltekit-embeds`.
 
-## Creating a project
+It imports the local workspace package and renders a gallery of embed examples so you can quickly smoke test behavior in a browser.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Run the demo
 
-```sh
-# create a new project
-npx sv create my-app
+From repository root:
+
+```bash
+pnpm install
+pnpm dev:web
 ```
 
-To recreate this project with the same configuration:
+Or from `apps/web`:
 
-```sh
-# recreate this project
-npx sv create --template minimal --types ts --no-install apps/web
+```bash
+pnpm dev
 ```
 
-## Developing
+## What this app is for
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Manual visual checks for iframe/script embeds
+- Quick iteration while developing components in `packages/sveltekit-embeds`
+- Verifying workspace package resolution in dev mode
 
-```sh
-npm run dev
+## Helpful commands
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+Type-check the demo app:
+
+```bash
+pnpm --filter web check
 ```
 
-## Building
+Build preview bundle:
 
-To create a production version of your app:
-
-```sh
-npm run build
+```bash
+pnpm --filter web build
+pnpm --filter web preview
 ```
 
-You can preview the production build with `npm run preview`.
+## Notes
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- The app resolves `sveltekit-embeds` to local workspace source during development.
+- Some third-party embeds can be blocked by region/cookies/network policies; that does not necessarily indicate a component bug.
