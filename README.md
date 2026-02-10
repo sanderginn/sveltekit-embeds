@@ -67,11 +67,11 @@ Recommended release flow from repo root:
 pnpm install
 pnpm release:check
 pnpm release:dry-run
-pnpm --filter sveltekit-embeds version patch
+pnpm --filter sveltekit-embeds exec npm version patch
 pnpm release:publish
 ```
 
-If you need a different semver bump, use `version minor` or `version major` instead of `version patch`.
+If you need a different semver bump, use `npm version minor` or `npm version major` instead of `npm version patch`.
 
 ## Workspace layout
 
