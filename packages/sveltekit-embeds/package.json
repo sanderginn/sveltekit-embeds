@@ -8,7 +8,8 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"prepack": "svelte-kit sync && svelte-package && publint",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"test:unit": "vitest run src/lib/utils"
 	},
 	"files": [
 		"dist",
@@ -39,7 +40,8 @@
 		"svelte": "^5.49.2",
 		"svelte-check": "^4.3.6",
 		"typescript": "^5.9.3",
-		"vite": "^7.3.1"
+		"vite": "^7.3.1",
+		"vitest": "^3.2.4"
 	},
 	"keywords": [
 		"svelte"
