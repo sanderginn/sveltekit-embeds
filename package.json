@@ -6,6 +6,9 @@
 	"scripts": {
 		"dev:lib": "pnpm --filter sveltekit-embeds dev",
 		"dev:web": "pnpm --filter web dev",
-		"check": "pnpm -r check"
+		"check": "pnpm -r check",
+		"release:check": "pnpm --filter sveltekit-embeds test:unit && pnpm --filter sveltekit-embeds check && pnpm --filter sveltekit-embeds prepack",
+		"release:dry-run": "pnpm --filter sveltekit-embeds exec npm pack --dry-run",
+		"release:publish": "pnpm --filter sveltekit-embeds publish --access public"
 	}
 }

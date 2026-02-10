@@ -63,6 +63,23 @@ Build package output and run publint:
 pnpm --filter sveltekit-embeds prepack
 ```
 
+## Publish to npm
+
+The package is configured for public npm publish (`publishConfig.access=public`).
+
+From repository root:
+
+```bash
+npm login
+pnpm --filter sveltekit-embeds test:unit
+pnpm --filter sveltekit-embeds check
+pnpm --filter sveltekit-embeds pack:dry-run
+pnpm --filter sveltekit-embeds version patch
+pnpm --filter sveltekit-embeds publish:npm
+```
+
+Use `version minor` or `version major` when needed.
+
 ## Testing notes
 
 - Browser component tests use `vitest-browser-svelte` + Playwright Chromium.

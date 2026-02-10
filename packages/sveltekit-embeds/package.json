@@ -1,6 +1,24 @@
 {
 	"name": "sveltekit-embeds",
 	"version": "0.0.1",
+	"description": "Svelte 5 embed components for media and social platforms.",
+	"author": "Sander Ginn",
+	"license": "MIT",
+	"homepage": "https://github.com/sanderginn/sveltekit-embeds#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sanderginn/sveltekit-embeds.git",
+		"directory": "packages/sveltekit-embeds"
+	},
+	"bugs": {
+		"url": "https://github.com/sanderginn/sveltekit-embeds/issues"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",
@@ -10,7 +28,9 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest run",
-		"test:utils": "vitest run src/lib/utils/index.test.ts"
+		"test:utils": "vitest run src/lib/utils/index.test.ts",
+		"pack:dry-run": "pnpm run prepack && npm pack --dry-run",
+		"publish:npm": "pnpm run prepack && pnpm publish --access public"
 	},
 	"files": [
 		"dist",
@@ -48,6 +68,14 @@
 		"vitest-browser-svelte": "^2.0.1"
 	},
 	"keywords": [
-		"svelte"
+		"svelte",
+		"sveltekit",
+		"embed",
+		"embeds",
+		"youtube",
+		"spotify",
+		"tiktok",
+		"twitch",
+		"social"
 	]
 }

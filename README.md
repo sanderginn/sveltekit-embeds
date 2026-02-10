@@ -54,6 +54,25 @@ Build and lint the published library output:
 pnpm --filter sveltekit-embeds prepack
 ```
 
+## Publish to npm
+
+Prerequisites:
+
+- npm account and publish access
+- logged in locally: `npm login`
+
+Recommended release flow from repo root:
+
+```bash
+pnpm install
+pnpm release:check
+pnpm release:dry-run
+pnpm --filter sveltekit-embeds version patch
+pnpm release:publish
+```
+
+If you need a different semver bump, use `version minor` or `version major` instead of `version patch`.
+
 ## Workspace layout
 
 ```text
