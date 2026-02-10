@@ -1,3 +1,29 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	import GeneralObserver from '$lib/components/general-observer.svelte';
+</script>
+
+<h1>GeneralObserver Preview</h1>
+<p>Scroll down to trigger the observed embed. The first embed bypasses observation.</p>
+
+<GeneralObserver disable_observer={true}>
+	<iframe src="about:blank" title="always-loaded"></iframe>
+</GeneralObserver>
+
+<div class="spacer"></div>
+
+<GeneralObserver threshold={0.6}>
+	<iframe src="about:blank" title="observed-loaded"></iframe>
+</GeneralObserver>
+
+<style>
+	iframe {
+		width: 100%;
+		height: 180px;
+		border: 1px solid #d0d7de;
+		border-radius: 8px;
+	}
+
+	.spacer {
+		height: 80vh;
+	}
+</style>
